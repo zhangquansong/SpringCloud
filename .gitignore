@@ -1,0 +1,17 @@
+/.idea/vcs.xml
+/.idea
+*.iml
+*.project
+.idea/
+.settings/
+*.class
+*.jar
+*.lst
+tar.gz
+*.tar.gz
+*.classpath
+*.MF
+*.original
+*.txt
+*.cmd
+.mvn/

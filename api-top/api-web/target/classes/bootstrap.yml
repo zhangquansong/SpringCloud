@@ -1,0 +1,49 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server-peer1:8761/eureka/,http://eureka-server-peer2:8762/eureka/,http://eureka-server-peer3:8763/eureka/
+server:
+  port: 8782
+spring:
+  application:
+    name: service-1
+  zipkin:
+    base-url: http://localhost:9411
+   #####################################################################################################
+   # mysql 属性配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: password
+   #  jpa:
+   #    hibernate:
+   #      #ddl-auto: create #ddl-auto:设为create表示每次都重新建表
+   #      ddl-auto: update #ddl-auto:设为update表示每次都不会重新建表
+   #    show-sql: true
+   #####################################################################################################
+
+#####################################################################################################
+   # 打印日志
+logging:
+ level:
+   root: INFO
+   com:
+     zqs:
+       api:  debug
+   #####################################################################################################
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+    #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.zqs.*.entity
+  configuration:
+      map-underscore-to-camel-case: true
+      cache-enabled: false
+      call-setters-on-nulls: true
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  returnPageInfo: check
